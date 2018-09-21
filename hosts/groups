@@ -1,0 +1,12 @@
+; environments
+[env_loafer]
+[env_loafer:vars]
+tf_folder=tg/live/loafer
+
+[env_loafer:children]
+tag_ush_environment_loafer
+
+; functional groups
+[web]
+[web:children]
+tag_ush_component_web

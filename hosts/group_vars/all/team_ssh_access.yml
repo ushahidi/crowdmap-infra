@@ -1,0 +1,5 @@
+---
+team_ssh_github_users: ["rjmackay","tuxpiper","rowasc"]
+team_ssh_keys: ["public_keys/willdoran.pub", "public_keys/annaiosif.pub", "public_keys/mkinsella.pub", "public_keys/deploy.pub"]
+team_ssh_root_key: "public_keys/root.pub"
+team_ssh_banned_keys: ["public_keys/zhalloran.pub", "public_keys/jasonmule.pub", "public_keys/crcommons.pub"]

@@ -1,0 +1,1 @@
+../_common-tf/vars-alarms.tf
