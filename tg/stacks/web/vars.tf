@@ -42,7 +42,7 @@ variable "instance_count"	      { default = 2 }
 variable "ami"                  { default = "" }   # force ami (otherwise uses AMI lookup module)
 variable "root_fs_size"         { default = "8" }
 variable "public_key_path"		  { default = "./ssh/insecure-deployer.pub" }
-variable "ubuntu_distribution"  { default = "lucid" }
+variable "ubuntu_distribution"  { default = "xenial" }
 
 # define outputs for variables that need sharing with ansible
 output "aws_region"			      { value = "${var.aws_region}" }
