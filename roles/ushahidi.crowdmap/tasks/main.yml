@@ -1,0 +1,9 @@
+---
+- include_tasks: deployer-user.yml
+  when: create_deploy_user and deploy_user != 'root'
+
+- include_tasks: deploy-dependencies.yml
+  tags: server-provision
+
+- include_tasks: code-deploy.yml
+  tags: code-deploy

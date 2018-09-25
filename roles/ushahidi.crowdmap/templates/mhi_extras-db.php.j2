@@ -1,0 +1,10 @@
+<?php
+	$db_host = '{{ crowdmap_db_host }}';
+	$db_user = '{{ crowdmap_db_user }}';
+	$db_password = '{{ crowdmap_db_password }}';
+	$db_name = '{{ crowdmap_db_name }}';
+
+	$link = mysql_connect($db_host, $db_user, $db_password) or die();
+	mysql_select_db($db_name) or die();
+	mysql_set_charset('utf8');
+?>

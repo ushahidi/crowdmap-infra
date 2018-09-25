@@ -1,0 +1,12 @@
+<?php
+
+	$config['servers'] = array(
+		array(
+			'host' => '{{ crowdmap_memcached_host }}',
+			'port' => '{{ crowdmap_memcached_port }}',
+			'persistent' => true,
+			'weight' => 1,
+			'timeout' => 1,
+			'retry_interval' => 15
+		)
+	);

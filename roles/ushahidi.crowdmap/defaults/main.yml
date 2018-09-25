@@ -1,0 +1,23 @@
+---
+crowdmap_folder: ""
+crowdmap_github_fetch_enabled: true
+crowdmap_php: php
+crowdmap_base_path: /var/www/crowdmap
+crowdmap_repo_url: git@github.com:ushahidi/Crowdmap.git
+crowdmap_repo_version: master
+
+www_user: www-data
+www_group: www-data
+
+create_deploy_user: true
+# deploy_user:
+
+crowdmap_memcached_enabled: false
+crowdmap_memcached_host: '127.0.0.1'
+crowdmap_memcached_port: '11211'
+
+crowdmap_session_driver: 'database' # Current default is cookie. Check if this works
+
+crowdmap_riverid_enabled: false
+crowdmap_new_dbs_enabled: false
+crowdmap_cdn_store_dynamic_content: true
