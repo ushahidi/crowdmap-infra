@@ -1,0 +1,4 @@
+# php_fpm_upload_max_filesize: 64M
+# php_fpm_max_execution_time: 300
+
+web_base_path: "{{ webroot_path }}/crowdmap"

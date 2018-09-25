@@ -1,0 +1,4 @@
+environment_name: loafer
+# TODO: this is duplicated from the terraform side?
+deployments_domain: loafer.ush.zone
+systems_domain: loafer.ush.systems

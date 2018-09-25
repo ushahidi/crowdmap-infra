@@ -7,4 +7,3 @@ apt_upgrade: true
 webroot_path: /var/www
 php_minor_version: "5.3"
 fix_legacy_pip_required: false
-platform_job_queue_home_dir: "/home/deploy"
