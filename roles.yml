@@ -16,5 +16,5 @@
   name: ushahidi.nginx
 
 - src: git+ssh://git@github.com/ushahidi/ansible-php.git
-  version: master
+  version: php-5.3
   name: ushahidi.php
