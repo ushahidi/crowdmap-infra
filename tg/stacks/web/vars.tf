@@ -15,7 +15,7 @@ module "ec2" {
   component = "web"
 	instance_count = "${var.instance_count}"
 	instance_type = "${var.instance_type}"
-  hostnames = [ "*.web.${data.null_data_source.env_constants.outputs.env_fqdn}" ]
+  hostnames = [ "*.${data.null_data_source.env_constants.outputs.env_fqdn}", "${data.null_data_source.env_constants.outputs.env_fqdn}" ]
   listener_rule_priority = "10"
   load_balancer_name = "${data.null_data_source.env_constants.outputs.load_balancer}"
   load_balancer_sg = "${data.null_data_source.env_constants.outputs.load_balancer_sg}"

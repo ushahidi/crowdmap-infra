@@ -35,7 +35,7 @@ data "null_data_source" "env_constants" {
     client_bucket = "ush-${var.product}-${var.environment}-client"
     load_balancer = "${var.product}-${var.environment}-lb"
     load_balancer_sg = "${var.product}-${var.environment}-lb"
-    load_balancer_records_main_zone = "${var.env_subdomain} api.${var.env_subdomain} *.api.${var.env_subdomain} www.${var.env_subdomain}"
+    load_balancer_records_main_zone = "${var.env_subdomain} *.${var.env_subdomain} www.${var.env_subdomain}"
     load_balancer_records_services_zone = "${coalesce(var.services_subdomain, var.env_subdomain)} *.${coalesce(var.services_subdomain, var.env_subdomain)}"
   }
 }

@@ -2,8 +2,7 @@ resource "aws_acm_certificate" "cert_lb" {
   domain_name = "*.${data.null_data_source.env_constants.outputs.env_fqdn}"
   subject_alternative_names = [
     "${data.null_data_source.env_constants.outputs.env_fqdn}",
-    "api.${data.null_data_source.env_constants.outputs.env_fqdn}",
-    "*.api.${data.null_data_source.env_constants.outputs.env_fqdn}",
+    "*.${data.null_data_source.env_constants.outputs.env_fqdn}",
     "${data.null_data_source.env_constants.outputs.env_services_fqdn}",
     "*.${data.null_data_source.env_constants.outputs.env_services_fqdn}"
   ]
