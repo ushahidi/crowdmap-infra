@@ -1,0 +1,33 @@
+
+# vars: deployment db name
+#       S3 path
+
+- name: Debug - Display the info for the deployment being imported
+  debug:
+    msg: "Importing {{ idx }}: {{ deployment }}"
+
+- name: Copy snapshot from S3 to local temp dir
+  aws_s3:
+    aws_access_key: "{{ snapshot_aws_access_key }}"
+    aws_secret_key: "{{ snapshot_aws_secret_key }}"
+    bucket: "{{ snapshot_bucket }}"
+    region: "{{ snapshot_region }}"
+    object: "{{ snapshot_name }}/{{ db_prefix }}{{ deployment }}.sql.gz"
+    dest: "{{ snapshot_temp.path }}/{{ db_prefix }}{{ deployment }}.sql.gz"
+    mode: get
+
+- name: Restore deployment database
+  mysql_db:
+    login_host: "{{ crowdmap_db_host }}"
+    name: "{{ db_prefix }}{{ deployment }}"
+    encoding: "utf8mb4"
+    collation: "utf8mb4_unicode_ci"
+    state: import
+    target: "{{ snapshot_temp.path }}/{{ db_prefix }}{{ deployment }}.sql.gz" # Apparently mysql_db can decompress the file
+  become: true
+  become_user: root # Run as root, because root has creds in ~/.my.cnf
+
+- name: Delete db dump
+  file:
+    state: absent
+    path: "{{ snapshot_temp.path }}/{{ db_prefix }}{{ deployment }}.sql"

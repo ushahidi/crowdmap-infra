@@ -1,0 +1,4 @@
+environment_name: crowdmap-rs
+source_db_name: crowdma_main
+source_db_host: 10.179.12.202
+source_db_user: crowdma_main
