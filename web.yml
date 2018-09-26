@@ -31,6 +31,9 @@
       default_server: True
       https_enabled: False
       https_force_redirect: True
+    - role: ushahidi.crowdmap
+      crowdmap_base_path: "{{ web_base_path }}"
+      deploy_user: "{{ become_deploy_user }}"
 
 
 # - name: web code deployment
