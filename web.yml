@@ -36,12 +36,13 @@
       deploy_user: "{{ become_deploy_user }}"
 
 
-# - name: web code deployment
-#   any_errors_fatal: true
-#   hosts:
-#     - web
-#   tags:
-#     - code-deploy
-#   tasks:
-#     - include_tasks: tasks.aws/common-env.yml
-#     - include_tasks: tasks.aws/api-lumen.yml
+- name: web code deployment
+  any_errors_fatal: true
+  hosts:
+    - web
+  tags:
+    - code-deploy
+  roles:
+    - role: ushahidi.crowdmap
+      crowdmap_base_path: "{{ web_base_path }}"
+      deploy_user: "{{ become_deploy_user }}"
