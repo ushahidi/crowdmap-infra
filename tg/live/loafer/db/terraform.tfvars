@@ -11,4 +11,4 @@ terragrunt = {
 }
 
 db_admin_username = "admin"
-db_admin_password = "FI2lGmAxebVrXeF"
+db_admin_password = "3DJ7oE9fcJE71GDedX1E"
