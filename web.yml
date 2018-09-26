@@ -25,7 +25,7 @@
       vhost_id: "crowdmap"
       vhost_index: index.php
       vhost_names: [ "*.{{ deployments_domain }}", "{{ deployments_domain }}" ]
-      vhost_docroot: "{{ web_base_path }}/httpdocs"
+      vhost_docroot: "{{ web_base_path }}"
       vhost_app_config: "{{ lookup('template', 'templates/nginx/web.conf.j2') }}"
       vhost_dedicated_health_check_path: /
       default_server: True
