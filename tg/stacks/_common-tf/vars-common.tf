@@ -32,7 +32,7 @@ data "null_data_source" "env_constants" {
     env_services_fqdn = "${coalesce(var.services_subdomain, var.env_subdomain)}.${var.r53_dns_services_zone}"
     iam_groups_path = "/${var.product}/${var.environment}/"
     iam_ci_group_name = "${var.product}-${var.environment}-ci"
-    client_bucket = "ush-${var.product}-${var.environment}-client"
+    static_bucket = "ush-${var.product}-${var.environment}-static"
     load_balancer = "${var.product}-${var.environment}-lb"
     load_balancer_sg = "${var.product}-${var.environment}-lb"
     load_balancer_records_main_zone = "${var.env_subdomain} *.${var.env_subdomain} www.${var.env_subdomain}"

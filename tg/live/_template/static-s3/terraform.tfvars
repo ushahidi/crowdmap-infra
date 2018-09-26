@@ -1,6 +1,6 @@
 terragrunt = {
   terraform {
-    source = "../../../stacks//client-s3"
+    source = "../../../stacks//static-s3"
   }
   dependencies {
     paths = [ "../iam" ]
