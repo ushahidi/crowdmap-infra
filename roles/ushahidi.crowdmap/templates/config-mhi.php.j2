@@ -1,0 +1,142 @@
+<?php defined('SYSPATH') or die('No direct script access.');
+
+$config['main_mhi_domain'] = '{{ crowdmap_deployments_domain }}';
+
+/**
+ * Array of subdomains you would like to prevent MHI users from using.
+ *
+ */
+$config['blocked_subdomains'] = array(
+
+	// Upcomming potential projects
+
+	'victoria','victoriastation',
+
+	// Team Member Names
+
+	'brian','brianherbert','patrick','caleb','erik','juliana','david','henry','dale','jon','linda','ory',
+	'limo','dalezak','evan','heather','brandon','daudi','charl','maria',
+
+	// Other
+
+	'test','api','crisismappers','emergency','crisis','fletcher','sipa','my','whiteafrican','kenyanpundit',
+	'appfrica','irevolution','game','swift','swiftriver','response','kenegele','temp','trash','stats','statistics',
+	'analytics','mail','map','maps','deployment','deployments','travel','media','photos','poll','police','crime','election',
+	'food','yourdeployment',
+
+	// Profanity
+
+	'xxx','porn','sex','fuck','shit','cock','pussy','asshole','cunt','bitch','bullshit','fuck','shit','ass',
+	'dick','penis','whore','douche','clit','boob','vagina',
+
+	// Services
+
+	'facebook','twitter','google','youtube','viddler','vimeo','basecamp','reader','gmail',
+
+	// Companies
+
+	'cnn','foxnews','fox','npr','wallstreetjournal','wsj','nyt','newyorktimes','associatedpress','reuters','aljazeera',
+	'bbc','bbcnews','presstv','interfax',
+
+	// Topics
+
+	'Elections2011','Elections2012','Elections2013','Elections2014','Elections2015','AfricaElections','Elections',
+	'KenyaElections','UgandaElections','ClimateChange','Health','Education','Environment','MobileMoney','Malaria',
+	'Opendata','Opendata.ke','transparency','accountability','democracy','siliconsavanna',
+
+	// Government Organizations
+
+	'COMESA','SADC',
+
+	// Large Geographic Areas
+
+	'africa','northamerica','southamerica','europe','asia','southeastasia','middleeast','northafrica',
+
+	// World Cities
+
+	'Abidjan','AbuDhabi','Abuja','Accra','Adamstown','AddisAbaba','Adelaide','Algiers','Alofi','Amman','Amsterdam',
+	'Astana','Athens','Auckland','Avarua','Baghdad','Baku','Bamako','BandarSeriBegawan','Bankok','Bangui','Banjul',
+	'Basel','Basseterre','Beijing','Beirut','Belgrade','Belmopan','Berlin','Bern','Bishkek','Bissau','Bloemfontein',
+	'Brasilia','Bratislava','Brazzaville','Bridgetown','Brisbane','Brussels','Bucharest','Budapest','BuenosAires',
+	'Bujumbura','Cairo','Calgary','Canberra','CapeTown','Caracas','Castries','CharlotteAmalie','Chicago','Chisinau',
+	'CockburnTown','Colombo','Conakry','Copenhagen','Cotonou','Dakar','Damascus','DaresSalaam','Dhaka','Dili',
+	'Djibouti','Dodoma','Doha','Dubai','Dublin','Dushanbe','Fagatogo','Fongafale','Freetown','Gaborone','Geneva',
+	'GeorgeTown','Georgetown','Gibraltar','Glasgow','GuatemalalaNueva','Hagatna','TheHague','Hamilton','Hanoi',
+	'Harare','Havana','Helsinki','Honiara','Islamabad','Istanbul','Jakarta','Jamestown','Jerusalem','Johannesburg',
+	'Kabul','Kampala','Kathmandu','Khartoum','Kigali','Kingston','Kingstown','Kinshasa','Kolkata','KualaLumpur',
+	'KuwaitCity','Kiev','LaPaz','Libreville','Lilongwe','Lima','Lisbon','Ljubljana','Lobamba','Lome','London',
+	'LosAngeles','Louisville','Luanda','Lusaka','Luxembourg','Madrid','Majuro','Malabo','Managua','Manama','Manila',
+	'Maputo','Maseru','Mbabane','Melbourne','Melekeok','MexicoCity','Minsk','Mogadishu','Monaco','Monrovia',
+	'Montevideo','Montreal','Moroni','Moscow','Muscat','Nairobi','Nassau','NewDehli','NewYork','Newcastle','Niamey',
+	'Nicosia','Nouakchott','Noumea','Nuuk','Oranjestad','Oslo','Ouagadougou','Palikir','PanamaCity','Papeete',
+	'Paramaribo','Paris','Perth','PhnomPenh','Podgorica','PortLouis','PortMoresby','PortauPrince','PortofSpain',
+	'PortoNovo','Prague','Praia','Pretoria','Pyongyang','Quito','Rabat','Reykjavik','Riga','RiodeJanero','RoadTown',
+	'Rome','Roseau','Rotterdam','Salvador','SanJose','SanJuan','SanMarino','SanSalvador','SantaCruz','Santiago',
+	'SantoDomingo','SaoPaulo','Sarajevo','Seoul','Shanghai','Sydney','Singapore','Skopje','Sofia','Stanley',
+	'Stockholm','Suva','Taipei','Tallinn','Tashkent','Tbilisi','Tegucigalpa','Tehran','TheHague','Thimphu','Tirana',
+	'Tiraspol','Tokyo','Toronto','Tripoli','Tunis','Ulaanbaatar','Vaduz','Valletta','Valparaiso','Vancouver',
+	'VaticanCity','Victoria','Vienna','Vientaine','Vilnius','Warsaw','Washingtondc','Wellington','Willemstad','Windhoek',
+	'Yamoussoukro','Yerevan','Zurich','Zagreb',
+
+	// Countries
+
+	"Afghanistan","Albania","Algeria","Andorra","Angola","AntiguaandBarbuda","Argentina","Armenia","Australia","Austria",
+	"Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia",
+	"BosniaandHerzegovina","Botswana","Brazil","Brunei","Bulgaria","BurkinaFaso","Burundi","Cambodia","Cameroon",
+	"Canada","CapeVerde","CentralAfricanRepublic","Chad","Chile","China","Colombi","Comoros","Brazzaville","Congo",
+	"CostaRica","CotedIvoire","Croatia","Cuba","Cyprus","CzechRepublic","Denmark","Djibouti","Dominica",
+	"DominicanRepublic","EastTimor","Ecuador","Egypt","ElSalvador","EquatorialGuinea","Eritrea","Estonia","Ethiopia",
+	"Fiji","Finland","France","Gabon","TheGambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea",
+	"GuineaBissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel",
+	"Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","NorthKorea","SouthKorea","Korea","Kuwait","Kyrgyzstan",
+	"Laos","Latvia","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macedonia",
+	"Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","MarshallIslands","Mauritania","Mauritius","Mexico",
+	"Micronesia","Moldova","Monaco","Mongolia","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepa","Netherlands",
+	"NewZealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palau","Panama","PapuaNewGuinea","Paraguay",
+	"Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda","SaintKittsandNevis","SaintLucia",
+	"SaintVincent","Samoa","SanMarino","SaoTomeandPrincipe","SaudiArabia","Senegal","SerbiaandMontenegro","Seychelles",
+	"SierraLeone","Singapore","Slovakia","Slovenia","SolomonIslands","Somalia","SouthAfrica","Spain","SriLanka","Sudan",
+	"Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Togo","Tonga",
+	"TrinidadandTobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","UnitedArabEmirates","UnitedKingdom",
+	"UnitedStates","Uruguay","Uzbekistan","Vanuatu","VaticanCity","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe",
+
+	// Block lifted
+
+	//'Lebanon'
+
+	);
+
+	$config['blocked_subdomains'] = array_map('strtolower', $config['blocked_subdomains']);
+
+	/**
+	 * Array of subdomains that will trigger an "edition" homepage
+	 *
+	 */
+
+	$config['edition_subdomains'] = array(
+		"Afghanistan","Albania","Algeria","Andorra","Angola","AntiguaandBarbuda","Argentina","Armenia","Australia","Austria",
+		"Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia",
+		"BosniaandHerzegovina","Botswana","Brazil","Brunei","Bulgaria","BurkinaFaso","Burundi","Cambodia","Cameroon",
+		"Canada","CapeVerde","CentralAfricanRepublic","Chad","Chile","China","Colombi","Comoros","Brazzaville","Congo",
+		"CostaRica","CotedIvoire","Croatia","Cuba","Cyprus","CzechRepublic","Denmark","Djibouti","Dominica",
+		"DominicanRepublic","EastTimor","Ecuador","Egypt","ElSalvador","EquatorialGuinea","Eritrea","Estonia","Ethiopia",
+		"Fiji","Finland","France","Gabon","TheGambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea",
+		"GuineaBissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel",
+		"Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","NorthKorea","SouthKorea","Korea","Kuwait","Kyrgyzstan",
+		"Laos","Latvia","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macedonia",
+		"Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","MarshallIslands","Mauritania","Mauritius","Mexico",
+		"Micronesia","Moldova","Monaco","Mongolia","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepa","Netherlands",
+		"NewZealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palau","Panama","PapuaNewGuinea","Paraguay",
+		"Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda","SaintKittsandNevis","SaintLucia",
+		"SaintVincent","Samoa","SanMarino","SaoTomeandPrincipe","SaudiArabia","Senegal","SerbiaandMontenegro","Seychelles",
+		"SierraLeone","Singapore","Slovakia","Slovenia","SolomonIslands","Somalia","SouthAfrica","Spain","SriLanka","Sudan",
+		"Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Togo","Tonga",
+		"TrinidadandTobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","UnitedArabEmirates","UnitedKingdom",
+		"UnitedStates","Uruguay","Uzbekistan","Vanuatu","VaticanCity","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"
+	);
+
+
+	$config['edition_subdomains'] = array_map('strtolower', $config['edition_subdomains']);
+
+	$config['current_edition'] = '';
+?>

@@ -42,8 +42,9 @@
       - cdn
       - cookie
       - encryption
-      - session
+      - mhi
       - riverid
+      - session
 
   - name: copy mhi_extras config files
     template: src="templates/mhi_extras-{{ item }}.php.j2" dest="{{ crowdmap_base_path }}/mhi_extras/{{ item }}.php"

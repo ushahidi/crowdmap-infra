@@ -32,6 +32,7 @@
       https_enabled: False
       https_force_redirect: True
     - role: ushahidi.crowdmap
+      crowdmap_deployments_domain: "{{ deployments_domain }}"
       crowdmap_base_path: "{{ web_base_path }}"
       deploy_user: "{{ become_deploy_user }}"
 
@@ -44,5 +45,6 @@
     - code-deploy
   roles:
     - role: ushahidi.crowdmap
+      crowdmap_deployments_domain: "{{ deployments_domain }}"
       crowdmap_base_path: "{{ web_base_path }}"
       deploy_user: "{{ become_deploy_user }}"

@@ -1,6 +1,7 @@
 ---
 # vars file for ushahidi.crowdmap
 
+# crowdmap_deployments_domain
 # crowdmap_db_host
 # crowdmap_db_user
 # crowdmap_db_password
