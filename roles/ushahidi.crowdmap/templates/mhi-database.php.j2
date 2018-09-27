@@ -123,9 +123,9 @@ if(Kohana::config('config.enable_mhi') == TRUE)
 					'connection'    => array
 					(
 						'type'     => 'mysql',
-						'user'     => mysql_result($result,0,'user'),
-						'pass'     => mysql_result($result,0,'pass'),
-						'host'     => mysql_result($result,0,'host'),
+						'user'     => $mhi_db['connection']['user'], // mysql_result($result,0,'user'),
+						'pass'     => $mhi_db['connection']['pass'], // mysql_result($result,0,'pass'),
+						'host'     => $mhi_db['connection']['host'], // mysql_result($result,0,'host'),
 						'port'     => FALSE,
 						'socket'   => FALSE,
 						'database' => mysql_result($result,0,'db')
