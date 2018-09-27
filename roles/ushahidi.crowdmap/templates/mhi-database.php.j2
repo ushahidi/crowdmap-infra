@@ -65,13 +65,14 @@ $config['new_dbs'] = array
 
 // If we are actually looking at a custom domain, figure it out and set that as the subdomain, and then we will switch it
 
-$subdomain = Kohana::config('settings.subdomain');
 
 if(Kohana::config('config.enable_mhi') == TRUE)
 {
 	$mhi_db = $config['default'];
 	$new_connection_config = $mhi_db;
 	$tp = $mhi_db['table_prefix'];
+	$main_domain = Kohana::config('mhi.main_mhi_domain');
+	$subdomain = Kohana::config('settings.subdomain');
 
 	// Connect to the MHI database
 	$link = mysql_connect($mhi_db['connection']['host'], $mhi_db['connection']['user'], $mhi_db['connection']['pass']) or die();
@@ -81,7 +82,7 @@ if(Kohana::config('config.enable_mhi') == TRUE)
 	//   ... if this is the case, we need to find the subdomain that the site was originally set up as.
 	if($subdomain == '')
 	{
-		if(Kohana::config('mhi.main_mhi_domain') != $_SERVER['HTTP_HOST'])
+		if($main_domain != $_SERVER['HTTP_HOST'])
 		{
 			// Looks like the domain accessing MHI is different, let's look up the custom domain
 			//    in the database to see if it's registered with a certain subdomain
@@ -153,14 +154,16 @@ if(Kohana::config('config.enable_mhi') == TRUE)
 
 				$base = url::base();
 				$url = parse_url($base);
-				$domain = strstr($url['host'],'.');
-				if($domain != FALSE)
-				{
-					// Redirect to the homepage if the subdomain isn't a valid deployment
 
-					$domain = ltrim($domain,'.');
-					url::redirect($url['scheme'].'://'.$domain);
-				}
+				url::redirect($url['scheme'] . '://' . $main_domain);
+				// $domain = strstr($url['host'],'.');
+				// if($domain != FALSE)
+				// {
+				// 	// Redirect to the homepage if the subdomain isn't a valid deployment
+
+				// 	$domain = ltrim($domain,'.');
+				// 	url::redirect($url['scheme'].'://'.$domain);
+				// }
 
 				Kohana::config_set('settings.subdomain', '');
 			}
