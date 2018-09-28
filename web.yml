@@ -20,7 +20,9 @@
     - role: ushahidi.common
     - role: ushahidi.team-ssh-access
     - role: ushahidi.php
+      tags: php-provision
     - role: ushahidi.nginx/server
+      tags: nginx-provision
     - role: ushahidi.nginx/vhost
       vhost_id: "crowdmap"
       vhost_index: "index.php index.html"
@@ -31,6 +33,7 @@
       default_server: True
       https_enabled: False
       https_force_redirect: True
+      tags: vhost-provision
     - role: ushahidi.crowdmap
       crowdmap_deployments_domain: "{{ deployments_domain }}"
       crowdmap_base_path: "{{ web_base_path }}"
