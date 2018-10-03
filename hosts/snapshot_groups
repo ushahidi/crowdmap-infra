@@ -5,12 +5,16 @@ crowdmap-staging-http ansible_ssh_host=50.56.197.167 ansible_ssh_port=2008 ansib
 # [crowdmap-stagin-rs]
 # crowdmap-staging-http
 
-[crowdmap-rs]
+[crowdmap-rs-db1]
 crowdmap-http1
+
+[crowdmap-rs-db2]
+crowdmap-http2
 
 [snapshot-source]
 
 [snapshot-source:children]
-crowdmap-rs
+crowdmap-rs-db1
+crowdmap-rs-db2
 # crowdmap-staging
 

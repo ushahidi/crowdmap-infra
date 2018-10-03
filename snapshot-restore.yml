@@ -64,12 +64,14 @@
 
         - name: Dump main db
           shell: "mysqldump -h {{ source_db_host }} -u {{ source_db_user }} -p{{ source_db_password }} --single-transaction {{ source_db_name }} | gzip > {{ snapshot_temp.path }}/{{ source_db_name }}.sql.gz"
+          when: skip_main_db is not defined
 
         - name: Fetch db dump
           fetch:
             flat: yes
             src: "{{ snapshot_temp.path }}/{{ source_db_name }}.sql.gz"
             dest: "{{ local_snapshot_temp.path}}/{{ source_db_name }}.sql.gz"
+          when: skip_main_db is not defined
 
         - name: Upload main db to s3
           aws_s3:
@@ -81,6 +83,7 @@
             object: "{{ snapshot_name }}/{{ source_db_name }}.sql.gz"
             mode: put
           delegate_to: localhost
+          when: skip_main_db is not defined
 
         - name: Export deployments
           include_tasks: tasks/snapshot.yml deployment={{ item }}
@@ -190,6 +193,7 @@
               object: "{{ snapshot_name }}/{{ source_db_name }}.sql.gz"
               dest: "{{ snapshot_temp.path }}/{{ source_db_name }}.sql.gz"
               mode: get
+          when: skip_main_db is not defined
 
         - name: Import cloud db
           mysql_db:
@@ -201,6 +205,7 @@
             target: "{{ snapshot_temp.path }}/{{ source_db_name }}.sql.gz" # Apparently mysql_db can decompress the file
           become: true
           become_user: root
+          when: skip_main_db is not defined
 
         - name: Import deployments
         # we may need to use other attributes of these deployments, so copying everything into {{deployment}}
