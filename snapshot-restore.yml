@@ -120,11 +120,6 @@
     - include_tasks: tasks/tf_facts.yml
       when: tf_folder is defined and tf_folder != ""
 
-    - name: Get snapshot_name from source host
-      set_fact:
-        snapshot_name: "{{ hostvars[groups['snapshot-source'] | first]['snapshot_name'] }}"
-      when: hostvars[groups['snapshot-source'] | first]['snapshot_name'] is defined
-
   tasks:
     - name: Abort if we are in production
       fail:
