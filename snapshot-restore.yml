@@ -111,9 +111,6 @@
   hosts: web
   vars:
     - snapshot_env: "{{ environment_name }}"
-    # - on_duplicate: "skip" # skip, overwrite, error
-    # - overwrite_env: False
-    # - overwrite_force: False
     - source_db_name: crowdma_main
     - force_prod_restore: False
     - db_prefix: "crowdma_main_"
@@ -122,6 +119,11 @@
   pre_tasks:
     - include_tasks: tasks/tf_facts.yml
       when: tf_folder is defined and tf_folder != ""
+
+    - name: Get snapshot_name from source host
+      set_fact:
+        snapshot_name: "{{ hostvars[groups['snapshot-source'] | first]['snapshot_name'] }}"
+      when: hostvars[groups['snapshot-source'] | first]['snapshot_name'] is defined
 
   tasks:
     - name: Abort if we are in production
