@@ -29,7 +29,7 @@ resource "aws_security_group" "db" {
 }
 
 resource "aws_db_option_group" "db" {
-	name = "options-${var.product}-${var.environment}"
+	name = "options-${var.product}-${var.environment}${var.db_instance_suffix}"
 	option_group_description = "Option Group ${var.product} - ${var.environment}"
 	engine_name = "mysql"
 	major_engine_version = "${var.mysql_major_version}"
@@ -38,7 +38,7 @@ resource "aws_db_option_group" "db" {
 }
 
 resource "aws_db_parameter_group" "db" {
-	name = "params-${var.product}-${var.environment}"
+	name = "params-${var.product}-${var.environment}${var.db_instance_suffix}"
 	family = "mysql${var.mysql_major_version}"
 
 	parameter {
@@ -97,7 +97,7 @@ resource "aws_db_subnet_group" "db" {
 }
 
 resource "aws_db_instance" "db" {
-	identifier = "${var.product}-${var.environment}"
+	identifier = "${var.product}-${var.environment}${var.db_instance_suffix}"
 	engine = "mysql"
 	engine_version = "${var.mysql_version}"
 	instance_class = "${var.db_instance_type}"
@@ -140,7 +140,7 @@ resource "aws_route53_record" "db" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "db_disk_space" {
-	alarm_name = "${var.product}-${var.environment}-db-disk-space"
+	alarm_name = "${var.product}-${var.environment}${var.db_instance_suffix}-db-disk-space"
 	comparison_operator = "LessThanOrEqualToThreshold"
 	evaluation_periods = "12"
 	metric_name = "FreeStorageSpace"

@@ -14,6 +14,8 @@ variable "storage_encrypted"  { default = "false" }
 
 variable "db_innodb_flush_log_at_trx_commit"  { default = "1" }
 
+variable "db_instance_suffix"   { default = "" }
+
 output "db_admin_user"		  { value = "${var.db_admin_username}" }
 output "db_admin_password"	{ value = "${var.db_admin_password}" }
 
