@@ -10,6 +10,7 @@ terragrunt = {
   }
 }
 
+db_apply_immediately = true
 db_admin_username = "admin"
 db_admin_password = "3DJ7oE9fcJE71GDedX1E"
 
