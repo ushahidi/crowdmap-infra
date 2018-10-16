@@ -30,6 +30,12 @@
   become: true
   become_user: root # Run as root, because root has creds in ~/.my.cnf
 
+- name: Disable email
+  shell: mysql -h {{ crowdmap_db_host }} {{ db_prefix }}{{ deployment }} -e "update scheduler set scheduler_active = 0 where id = 3;"
+  when: skip_disable_email is not defined
+  become: true
+  become_user: root # Run as root, because root has creds in ~/.my.cnf
+
 - name: Delete db dump
   file:
     state: absent
