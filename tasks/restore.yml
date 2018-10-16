@@ -16,6 +16,9 @@
     dest: "{{ snapshot_temp.path }}/{{ db_prefix }}{{ deployment }}.sql.gz"
     mode: get
 
+- name: Unarchive the file
+  shell: "gunzip {{ snapshot_temp.path }}/{{ db_prefix }}{{ deployment }}.sql.gz"
+
 - name: Restore deployment database
   mysql_db:
     login_host: "{{ crowdmap_db_host }}"
@@ -23,7 +26,7 @@
     encoding: "utf8mb4"
     collation: "utf8mb4_unicode_ci"
     state: import
-    target: "{{ snapshot_temp.path }}/{{ db_prefix }}{{ deployment }}.sql.gz" # Apparently mysql_db can decompress the file
+    target: "{{ snapshot_temp.path }}/{{ db_prefix }}{{ deployment }}.sql" # Apparently mysql_db can decompress the file
   become: true
   become_user: root # Run as root, because root has creds in ~/.my.cnf
 
