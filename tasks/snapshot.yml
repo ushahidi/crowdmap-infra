@@ -1,5 +1,5 @@
 - name: Snapshot deployment db
-  shell: "mysqldump -h {{ source_db_host }} -u {{ source_db_user }} -p{{ source_db_password }} --single-transaction {{ db_prefix }}{{ deployment }} | gzip > {{ snapshot_temp.path }}/{{ db_prefix }}{{ deployment }}.sql.gz"
+  shell: "mysqldump -h {{ source_db_host }} -u {{ source_db_user }} -p{{ source_db_password }} --single-transaction --skip-triggers {{ db_prefix }}{{ deployment }} | gzip > {{ snapshot_temp.path }}/{{ db_prefix }}{{ deployment }}.sql.gz"
 
 - name: Fetch db dump
   fetch:

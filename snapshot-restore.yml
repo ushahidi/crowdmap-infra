@@ -63,7 +63,7 @@
             msg: "Creating snapshot {{ snapshot_name }} in bucket {{ snapshot_bucket }}"
 
         - name: Dump main db
-          shell: "mysqldump -h {{ source_db_host }} -u {{ source_db_user }} -p{{ source_db_password }} --single-transaction {{ source_db_name }} | gzip > {{ snapshot_temp.path }}/{{ source_db_name }}.sql.gz"
+          shell: "mysqldump -h {{ source_db_host }} -u {{ source_db_user }} -p{{ source_db_password }} --single-transaction --skip-triggers {{ source_db_name }} | gzip > {{ snapshot_temp.path }}/{{ source_db_name }}.sql.gz"
           when: skip_main_db is not defined
 
         - name: Fetch db dump
