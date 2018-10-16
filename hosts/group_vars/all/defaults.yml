@@ -15,3 +15,12 @@ crowdmap_db_server_admin_password: "{{ terraform.db.db_admin_password }}"
 crowdmap_db_name: "crowdma_main"
 crowdmap_db_user: "crowdmap"
 crowdmap_repo_version: "aws-migration"
+
+iam_api_key_id: "{{ terraform.web.iam_api_key_id }}"
+iam_api_ses_smtp_password: "{{ terraform.web.iam_api_ses_smtp_password }}"
+
+postfix_hostname: "crowdmap.com"
+smtp_domain: "email-smtp.{{ terraform.web.aws_region }}.amazonaws.com"
+smtp_port: 587
+smtp_user: "{{ iam_api_key_id }}"
+smtp_password: "{{ iam_api_ses_smtp_password }}"
