@@ -34,3 +34,8 @@
   file:
     state: absent
     path: "{{ snapshot_temp.path }}/{{ db_prefix }}{{ deployment }}.sql"
+
+- name: Delete db dump
+  file:
+    state: absent
+    path: "{{ snapshot_temp.path }}/{{ db_prefix }}{{ deployment }}.sql.gz"
