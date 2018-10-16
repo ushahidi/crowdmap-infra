@@ -2,8 +2,8 @@ variable "db_instance_type"		{ default = "db.t2.micro" }
 variable "allocated_storage"	{ default = 8 }
 variable "storage_type"       { default = "gp2" }
 variable "provisioned_iops"   { default = 0 }
-variable "mysql_major_version" { default = "5.7" }
-variable "mysql_version"      { default = "5.7.21" }
+variable "mysql_major_version" { default = "5.6" }
+variable "mysql_version"      { default = "5.6.41" }
 variable "multi_az"           { default = "false" }
 variable "db_admin_username"	{ }
 variable "db_admin_password"	{ }
