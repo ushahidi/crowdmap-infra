@@ -4,4 +4,4 @@ Terraform and ansible set up for creating a new crowdmap classic infrastructure 
 
 # Migration
 
-See [migration docs](docs/migration.yml)
+See [migration docs](docs/migration.md)
