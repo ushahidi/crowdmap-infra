@@ -1,5 +1,0 @@
-environment_name: crowdmap-rs
-source_db_name: crowdma_main
-source_db_host: 10.208.38.147
-source_db_user: crowdma_main
-skip_main_db: true

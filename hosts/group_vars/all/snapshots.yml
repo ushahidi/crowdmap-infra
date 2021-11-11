@@ -1,4 +1,0 @@
-snapshot_bucket: crowdmap-snapshots
-snapshot_aws_access_key: "{{ secret_snapshot_aws_access_key }}"
-snapshot_aws_secret_key: "{{ secret_snapshot_aws_secret_key }}"
-snapshot_region: eu-west-1
